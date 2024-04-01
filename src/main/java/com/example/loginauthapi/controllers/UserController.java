@@ -12,4 +12,6 @@ public class UserController {
     public ResponseEntity<String> getUser(){
         return ResponseEntity.ok("funcionou");
     }
+
+
 }

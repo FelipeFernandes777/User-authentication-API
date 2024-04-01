@@ -1,4 +1,5 @@
 package com.example.loginauthapi.infra.security;
+
 import com.example.loginauthapi.domain.user.User;
 import com.example.loginauthapi.repositories.UserRepository;
 import jakarta.servlet.FilterChain;

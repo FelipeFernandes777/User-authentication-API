@@ -36,19 +36,18 @@ public class TokenService {
         try {
             Algorithm algorithm =Algorithm.HMAC256(secret);
 
-             var tokenValidate = JWT.require(algorithm)
-                    .withIssuer("login-auth-api")
-                    .build()
-                    .verify(token)
-                    .getSubject();
+             return JWT.require(algorithm)
+                     .withIssuer("login-auth-api")
+                     .build()
+                     .verify(token)
+                     .getSubject();
 
-            return tokenValidate;
         }catch (JWTVerificationException exception){
             return null;
         }
     }
 
     private Instant generateExpirationDate(){
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-3 hours"));
+        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
 }
