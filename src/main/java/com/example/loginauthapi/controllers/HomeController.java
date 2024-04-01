@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
-    @GetMapping
-    public ResponseEntity<String> getUser(){
-        return ResponseEntity.ok("funcionou");
+@RequestMapping("home")
+public class HomeController {
+
+    @GetMapping("/hello")
+    public ResponseEntity<String> sayHello(){
+        return ResponseEntity.ok().body("Hello, welcome to api");
     }
 }
