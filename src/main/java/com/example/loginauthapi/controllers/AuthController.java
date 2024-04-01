@@ -28,7 +28,7 @@ public class AuthController {
     public ResponseEntity login(@RequestBody LoginRequestDTO body ){
         User user = this.repository.findByEmail(body.email()).orElseThrow(() -> new RuntimeException("User not found"));
             //Check if passwords are the same
-        if(passwordEncoder.matches(user.getPassword(), body.password())){
+        if(passwordEncoder.matches(body.password(),user.getPassword())){
             String token = this.tokenService.generateToken(user);
 
             return ResponseEntity.ok().body(new ResponseDTO(user.getName(), token));
